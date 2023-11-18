@@ -18,3 +18,11 @@ jobs:
         run: yarn install
       - name: Preform linting
         run: yarn lint
+      - name: Build Docker image
+        uses: docker/build-push-action@v3
+        with:
+          context: .
+          file: ./Dockerfile
+          push: "false" 
+          tags: |
+            wesleymaebe/webapp:latest
