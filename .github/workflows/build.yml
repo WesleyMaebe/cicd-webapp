@@ -18,11 +18,16 @@ jobs:
         run: yarn install
       - name: Preform linting
         run: yarn lint
+      - name: Log in DockerHub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_PASSWORD }}
       - name: Build Docker image
         uses: docker/build-push-action@v3
         with:
           context: .
           file: ./Dockerfile
           push: "false" 
-          tags: |
-            wesleymaebe/webapp:latest
+          tags: 
+            ${{ secrets.DOCKERHUB_USERNAME }}/webapp:latest
