@@ -5,7 +5,7 @@ import generateFakeData from './generateFakeData.js';
 let client;
 
 export async function initialize() {
-  client = new MongoClient(process.env.MONGO_URL, { authSource: 'admin',});
+  client = new MongoClient(process.env.MONGO_URL, { authSource: 'admin'});
   await client.connect();
 
   const animals = client.db().collection('animals');
