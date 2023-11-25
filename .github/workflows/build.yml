@@ -16,10 +16,10 @@ jobs:
             node-version: 18
       - name: Install yarn
         run: yarn install
-      - name: Testing yarn
-        run: yarn test
       - name: Preform linting
         run: yarn lint
+      - name: Testing yarn
+        run: yarn test
       - name: Log in DockerHub
         uses: docker/login-action@v3
         with:
