@@ -16,6 +16,8 @@ jobs:
             node-version: 18
       - name: Install yarn
         run: yarn install
+      - name: Testing yarn
+        run: yarn test
       - name: Preform linting
         run: yarn lint
       - name: Log in DockerHub
