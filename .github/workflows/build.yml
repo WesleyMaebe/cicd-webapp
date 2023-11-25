@@ -19,7 +19,7 @@ jobs:
       - name: Preform linting
         run: yarn lint
       - name: starting yarn
-        run: yarn
+        run: yarn build
       - name: Testing yarn
         run: yarn test
       - name: Log in DockerHub
