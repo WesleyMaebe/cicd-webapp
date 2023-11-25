@@ -18,8 +18,6 @@ jobs:
         run: yarn install
       - name: Preform linting
         run: yarn lint
-      - name: Testing yarn
-        run: yarn test
       - name: Log in DockerHub
         uses: docker/login-action@v3
         with:
@@ -33,3 +31,19 @@ jobs:
           push: "true" 
           tags: 
             ${{ secrets.DOCKERHUB_USERNAME }}/webapp:latest
+
+  test:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - name: Install nodeJS
+        uses: actions/setup-node@v3
+        with:
+            node-version: 18
+      - name: Install yarn
+        run: yarn install
+      - name: Run tests
+        run: yarn test
+
