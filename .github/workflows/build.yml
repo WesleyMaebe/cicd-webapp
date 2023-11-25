@@ -18,8 +18,6 @@ jobs:
         run: yarn install
       - name: Preform linting
         run: yarn lint
-      - name: Testing yarn
-        run: yarn test
       - name: Log in DockerHub
         uses: docker/login-action@v3
         with:
@@ -33,3 +31,5 @@ jobs:
           push: "true" 
           tags: 
             ${{ secrets.DOCKERHUB_USERNAME }}/webapp:latest
+      - name: Testing yarn
+        run: yarn test
