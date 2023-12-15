@@ -22,8 +22,6 @@ jobs:
         run: yarn start:pm2
       - name: Testing yarn
         run: yarn test
-      - name: Stop server
-        run: pm2 kill
       - name: Log in DockerHub
         uses: docker/login-action@v3
         with:
@@ -37,4 +35,6 @@ jobs:
           push: "true" 
           tags: 
             ${{ secrets.DOCKERHUB_USERNAME }}/webapp:latest
+      - name: Stop server
+        run: pm2 kill
       
