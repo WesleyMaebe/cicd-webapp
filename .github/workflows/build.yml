@@ -18,8 +18,12 @@ jobs:
         run: yarn install
       - name: Preform linting
         run: yarn lint
+      - name: Start Server
+        run: yarn start:pm2
       - name: Testing yarn
         run: yarn test
+      - name: Stop server
+        run: pm2 kill
       - name: Log in DockerHub
         uses: docker/login-action@v3
         with:

@@ -14,4 +14,4 @@ RUN yarn install --frozen-lockfile
 EXPOSE 3000
 
 # Command to run the application
-CMD ["yarn", "start"]
+CMD ["pm2-runtime", "yarn", "start"]

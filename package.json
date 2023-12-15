@@ -10,7 +10,9 @@
   "scripts": {
     "start": "node index.js",
     "test": "mocha test.spec.js",
-    "lint": "eslint . --ext .js"
+    "lint": "eslint . --ext .js",
+    "start:pm2": "pm2 start index.js",
+    "stop:pm2": "pm2 kill"
   },
   "dependencies": {
     "@fakerjs/animal": "^2.2.0",
@@ -25,6 +27,7 @@
     "chai": "^4.3.7",
     "eslint": "^8.47.0",
     "mocha": "^10.2.0",
-    "node-fetch": "^2.6.11"
+    "node-fetch": "^2.6.11",
+    "pm2": "^5.0.0"
   }
 }
