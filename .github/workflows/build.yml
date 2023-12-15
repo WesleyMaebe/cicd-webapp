@@ -37,4 +37,9 @@ jobs:
           push: "true" 
           tags: 
             ${{ secrets.DOCKERHUB_USERNAME }}/webapp:latest
-      
+      - name: Install Snyk CLI
+        run: npm install -g snyk
+      - name: Check security with Snyk
+        run: 
+          npx snyk auth ${{ secrets.SNYK_TOKEN }}
+          npx snyk test
